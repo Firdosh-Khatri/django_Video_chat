@@ -64,19 +64,19 @@ btnJoin.addEventListener('click',() => {
     var labelUsername = document.querySelector('#label-username');
     labelUsername.innerHTML = username;
 
-    var loc = window.location;
+     var loc = window.location;
     var wsStart = 'ws://';
 
     if (loc.protocol == 'https:'){
         wsStart = 'wss://';
     }
 
-    var endPoint = wsStart + loc.host + loc.pathname;
+    var endPoint = wsStart + loc.host + '/ws/chat/';
 
-    console.log('endPoint: ', endPoint);
+    console.log('Connecting to WebSocket at: ', endPoint);
 
-    webSocket = new WebSocket(endPoint);
-
+    var webSocket = new WebSocket(endPoint);
+    
     webSocket.addEventListener('open', (e) =>{
         console.log('Connection Opened!');
 
