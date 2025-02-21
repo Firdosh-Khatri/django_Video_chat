@@ -49,7 +49,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }   
         )
         
-        async def send_sdp(self, event):
-            message = event['receive_dict']
+async def send_sdp(self, event):
+            receive_dict = event['receive_dict']
             
-            await self.send(text_data=json.dumps(message))
+            await self.send(text_data=json.dumps(receive_dict))
